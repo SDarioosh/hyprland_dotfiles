@@ -1,32 +1,33 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status
-set -e
+echo "Updating system..."
+sudo pacman -Syu
 
-echo "Starting automated installation process..."
+echo "Installing official repository packages..."
+# Including hyprland, wayland utilities, your new additions, and requested apps
+sudo pacman -S --needed \
+    hyprland \
+    hyprpaper \
+    waybar \
+    polkit-kde-agent \
+    qt5-wayland qt6-wayland \
+    rofi-wayland \
+    dolphin \
+    fish \
+    libqalculate \
+    kate \
+    zip \
+    7zip \
+    stow
 
-# 1. Update system package databases
-echo "Synchronizing package databases and updating system..."
-sudo pacman -Syu --noconfirm
+echo "Installing AUR packages..."
+# brave-bin, plexamp, tidal
+paru -S --needed \
+    brave-bin \
+    plexamp-appimage \
+    tidal-hifi-bin
 
-# 2. Define packages to install
-PACKAGES=(
-    rofi-wayland
-    dolphin
-    fish
-    waybar
-    hyprpaper
-    libqalculate   # Provides the 'qalc' CLI engine used by rofi-calc
-    qt5-wayland     # Ensures Dolphin works perfectly under Wayland
-    qt6-wayland     # Ensures Dolphin works perfectly under Wayland
-)
+echo "Setting Fish as the default shell..."
+chsh -s /usr/bin/fish
 
-# 3. Install packages via pacman
-echo "Installing core packages..."
-sudo pacman -S --needed --noconfirm "${PACKAGES[@]}"
-
-# 4. Optional: Set fish as the default shell
-echo "Setting fish as the default shell..."
-chsh -s $(which fish)
-
-echo "Installation complete! Core apps and qalc are ready."
+echo "Installation complete!"
