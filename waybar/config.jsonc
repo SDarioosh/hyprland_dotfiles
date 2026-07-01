@@ -41,6 +41,8 @@
 		"custom/spacer",
 		"network",
 		"custom/spacer",
+		"cpu",
+		"custom/spacer",
 		"memory",
 		"custom/spacer",
 		"battery",

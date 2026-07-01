@@ -64,9 +64,9 @@ choice="$(
 )"
 
 case "$choice" in
-  *""*) loginctl lock-session ;;
-  *"󰒲"*) systemctl suspend ;;
+  *""*) hyprctl dispatch exit ;;
+  *"󰒲"*) systemctl hibernate ;;
   *""*) systemctl reboot ;;
-  *"⏻"*) systemctl poweroff ;;
+  *"⏻"*)  systemctl poweroff ;;
   *) exit 0 ;;
 esac

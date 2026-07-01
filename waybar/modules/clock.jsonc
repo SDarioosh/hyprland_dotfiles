@@ -1,7 +1,7 @@
 {
 	"clock": {
 		"format": "{:%H:%M %b-%d}",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+		"tooltip-format": "<tt><big>{calendar}</big></tt>",
 		"actions": {
 			"on-scroll-up": "shift_up",
 			"on-scroll-down": "shift_down",
