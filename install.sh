@@ -39,7 +39,8 @@ sudo pacman -S --needed \
     blueman \
     bluez \
     bluez-utils \
-    openssh
+    openssh \
+    mako
 
 echo "Installing AUR packages..."
 # Web browser, media players, and custom exit menu
@@ -48,6 +49,22 @@ paru -S --needed \
     plexamp-appimage \
     sone-bin \
     hyprshutdown
+
+
+echo "Configuring Mako notification daemon..."
+# Ensure the configuration directory exists
+mkdir -p "$HOME/.config/mako"
+
+# Write custom settings directly to the config file
+cat << 'EOF' > "$HOME/.config/mako/config"
+default-timeout=3000
+ignore-timeout=true
+EOF
+
+# Safely reload Mako if it's currently running in the active session
+if pkill -0 mako 2>/dev/null; then
+    makoctl reload
+fi
 
 echo "Setting Fish as the default shell..."
 chsh -s /usr/bin/fish "$USER"
