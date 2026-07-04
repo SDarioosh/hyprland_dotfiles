@@ -42,7 +42,8 @@ sudo pacman -S --needed \
     openssh \
     mako \
     openbubbles-bin \
-    warp
+    warp \
+    signal-desktop
 
 echo "Installing AUR packages..."
 # Web browser, media players, and custom exit menu
