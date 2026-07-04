@@ -40,7 +40,9 @@ sudo pacman -S --needed \
     bluez \
     bluez-utils \
     openssh \
-    mako
+    mako \
+    openbubbles-bin \
+    warp
 
 echo "Installing AUR packages..."
 # Web browser, media players, and custom exit menu
@@ -57,7 +59,7 @@ mkdir -p "$HOME/.config/mako"
 
 # Write custom settings directly to the config file
 cat << 'EOF' > "$HOME/.config/mako/config"
-default-timeout=3000
+default-timeout=2000
 ignore-timeout=true
 EOF
 
