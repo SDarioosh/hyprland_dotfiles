@@ -41,9 +41,9 @@ sudo pacman -S --needed \
     bluez-utils \
     openssh \
     mako \
-    openbubbles-bin \
     warp \
-    signal-desktop
+    signal-desktop \
+    libappindicator-gtk3
 
 echo "Installing AUR packages..."
 # Web browser, media players, and custom exit menu
@@ -51,23 +51,19 @@ paru -S --needed \
     brave-bin \
     plexamp-appimage \
     sone-bin \
-    hyprshutdown
+    hyprshutdown \
+    openbubbles-app-bin
 
 
-echo "Configuring Mako notification daemon..."
-# Ensure the configuration directory exists
-mkdir -p "$HOME/.config/mako"
+echo "Linking config files"
+# 1. Ensure the parent .config directory exists
+mkdir -p ~/.config
 
-# Write custom settings directly to the config file
-cat << 'EOF' > "$HOME/.config/mako/config"
-default-timeout=2000
-ignore-timeout=true
-EOF
-
-# Safely reload Mako if it's currently running in the active session
-if pkill -0 mako 2>/dev/null; then
-    makoctl reload
-fi
+for app in rofi hypr waybar mako qalculate; do
+    rm -rf ~/.config/$app
+    ln -s ~/dotfiles/$app ~/.config/$app
+    echo "Symlinked: $app -> ~/.config/$app"
+done
 
 echo "Setting Fish as the default shell..."
 chsh -s /usr/bin/fish "$USER"
