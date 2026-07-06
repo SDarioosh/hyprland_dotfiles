@@ -34,7 +34,6 @@
 	"modules-right": [
 		"custom/updates",
 		"tray",
-		"custom/spacer",
 		"idle_inhibitor",
 		"custom/spacer",
 		"pulseaudio",
