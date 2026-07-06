@@ -13,7 +13,18 @@ sudo pacman -S --needed \
     qt5-wayland qt6-wayland \
     rofi-wayland \
     rofi-calc \
-    dolphin \
+    thunar \
+    thunar-volman \
+    thunar-archive-plugin \
+    gvfs \
+    ristretto \
+    tumbler \
+    ffmpegthumbnailer \
+    libopenraw \
+    webp-pixbuf-loader \
+    poppler-glib \
+    libgsf \
+    freetype2 \
     fish \
     libqalculate \
     kate \
@@ -59,7 +70,7 @@ echo "Linking config files"
 # 1. Ensure the parent .config directory exists
 mkdir -p ~/.config
 
-for app in rofi hypr waybar mako qalculate; do
+for app in rofi hypr waybar mako qalculate Thunar ristretto kate fish foot; do
     rm -rf ~/.config/$app
     ln -s ~/dotfiles/$app ~/.config/$app
     echo "Symlinked: $app -> ~/.config/$app"
