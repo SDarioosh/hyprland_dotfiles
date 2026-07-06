@@ -54,7 +54,10 @@ sudo pacman -S --needed \
     mako \
     warp \
     signal-desktop \
-    libappindicator-gtk3
+    libappindicator-gtk3 \
+    gnome-keyring \
+    libsecret\
+    seahorse
 
 echo "Installing AUR packages..."
 # Web browser, media players, and custom exit menu
