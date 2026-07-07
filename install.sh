@@ -73,7 +73,7 @@ echo "Linking config files"
 # 1. Ensure the parent .config directory exists
 mkdir -p ~/.config
 
-for app in rofi hypr waybar mako qalculate Thunar ristretto kate fish foot; do
+for app in rofi hypr waybar mako qalculate Thunar ristretto fish foot; do
     rm -rf ~/.config/$app
     ln -s ~/dotfiles/$app ~/.config/$app
     echo "Symlinked: $app -> ~/.config/$app"
