@@ -66,7 +66,8 @@ paru -S --needed \
     plexamp-appimage \
     sone-bin \
     hyprshutdown \
-    openbubbles-app-bin
+    openbubbles-app-bin \
+    python-easyeda2kicad-git
 
 
 echo "Linking config files"
