@@ -21,7 +21,7 @@ local terminal = "foot"
 
 local fileManager = "thunar"
 
-local menu = "rofi -show drun -modes drun calc -theme ~/.config/rofi/launcher.rasi -hover-select -kb-element-next  -kb-mode-next Tab"
+local menu = "rofi -show drun -modes drun calc -theme ~/.config/rofi/launcher.rasi -hover-select -kb-element-next none \"\" -kb-mode-next Tab"
 
 --Execution controls
 
@@ -37,7 +37,7 @@ hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("thunar"))
 
 hl.bind(mainMod .. " + " .. "V", hl.dsp.window.float())
 
-hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd("rofi -show drun -modes drun calc -theme ~/.config/rofi/launcher.rasi -hover-select -kb-element-next  -kb-mode-next Tab"))
+hl.bind(mainMod .. " + " .. "R", hl.dsp.exec_cmd("rofi -show drun -modes drun calc -theme ~/.config/rofi/launcher.rasi -hover-select -kb-element-next \"\"  -kb-mode-next Tab"))
 
 hl.bind(mainMod .. " + " .. "F", hl.dsp.exec_cmd("brave"))
 
@@ -182,7 +182,8 @@ hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy"))
 
 -- Capture a selected region to clipboard
 
-hl.bind("SUPER + SHIFT" .. " + " .. "A", hl.dsp.exec_cmd("grim -g $(slurp) - | wl-copy"))
+-- Capture a selected region to clipboard (Fully working Lua escape format)
+hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("pidof slurp || grim -g \"$(slurp)\" - | wl-copy"))
 
 -- Autostart
 hl.on("hyprland.start", function()
