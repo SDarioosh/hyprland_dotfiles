@@ -2,7 +2,7 @@
 	"network": {
 		"format-wifi": "<span rise='1300' size='11000'>{icon}</span> {signalStrength}",
 		"format-ethernet": "<span rise ='2000'> </span>",
-		"format-linked": "{ifname} (No IP)  ",
+		"format-linked": "<span rise='1300' size='11000'>{icon}</span> {signalStrength}",
 		"format-disconnected": "<span rise ='1300' size='12000'>󰤮 </span>",
 		"on-click": "~/.config/waybar/scripts/networkmenu.sh",
 		"format-icons": [
